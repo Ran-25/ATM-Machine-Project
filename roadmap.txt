@@ -1,0 +1,6 @@
+1. Log in/sign up function
+- generate account number with initial number is 84
+- log in use account number and Passcode
+- save user account detail
+
+2. Selection for balance, withdraw and deposit
