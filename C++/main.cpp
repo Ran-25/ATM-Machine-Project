@@ -1,6 +1,7 @@
 #include<iostream>
 #include <fstream>
 #include <string>
+#include<cstdlib>
 
 
 void Login_Account();
@@ -26,7 +27,7 @@ int main(){
 
 void Login_Account(){
     int Account_ID, Account_PASSCODE;
-    std::fstream file ("Account_detail.txt");
+    std::fstream file ("Account_detail.dat");
     std::string id;
 
     std::cout<<"Enter ACCOUNT_ID: ";
@@ -45,5 +46,21 @@ void Login_Account(){
 }
 
 void Sign_up(){
-    std::cout<<"Nice";
+    srand((unsigned) time(NULL));
+
+	// Get a random number
+	int random = 100000 + rand() % 900000;
+    std::string randomSTR = std::to_string(random);
+
+    std::string Account_ID = "84" + randomSTR + "26";
+
+    std::ofstream writeFile;
+    writeFile.open("Account_detail.dat", std::ios::app);
+
+    // Write to the file
+    writeFile<<Account_ID<<std::endl;
+
+    // Close the file
+     writeFile.close();
+      
 }
