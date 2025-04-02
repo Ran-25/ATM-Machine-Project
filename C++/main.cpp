@@ -20,28 +20,34 @@ int main(){
         Sign_up();
     }
 
-
-
-
 }
 
-void Login_Account(){
-    int Account_ID, Account_PASSCODE;
-    std::fstream file ("Account_detail.dat");
-    std::string id;
+void Login_Account() {
+    int Account_ID;
+    std::fstream file("Account_detail.dat");
 
-    std::cout<<"Enter ACCOUNT_ID: ";
-    std::cin>>Account_ID;
+    std::cout << "Enter ACCOUNT_ID: ";
+    std::cin >> Account_ID;
 
     std::string Account_IDSTR = std::to_string(Account_ID);
+    std::string id;
+    bool found = false;
 
-    while(file >> id){
-        if(id == Account_IDSTR){
-            std::cout << "ID exists\n";
+
+    while (file >> id) {
+        if (id == Account_IDSTR) {
+            found = true;
+            break;
         }
-        else{
-            std::cout << "Account Not Exist. Need To Sign Up\n";
-        }
+    }
+
+
+    file.close();
+
+    if (found) {
+        std::cout << "ID exists\n";
+    } else {
+        std::cout << "NO Lahh\n";
     }
 }
 
